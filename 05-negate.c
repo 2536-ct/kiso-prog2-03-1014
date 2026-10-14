@@ -10,6 +10,7 @@
 //   ① 完成したら、なぜその式で正負が逆転するのかをペアの人に説明する
 // ==================================================
 #include <stdio.h>
+#include <limits.h>
 
 int main(void)
 {
@@ -17,9 +18,17 @@ int main(void)
     int inverse_num;
 
     printf("整数=");
-    scanf("%d", &num);
+    if (scanf("%d", &num) != 1) {
+        fprintf(stderr, "整数を入力してください。\n");
+        return 1;
+    }
 
-    inverse_num = 0;   /* ここを書き換える */
+    if (num == INT_MIN) {
+        fprintf(stderr, "この値はint型では正負を逆転できません。\n");
+        return 1;
+    }
+
+    inverse_num = ~num + 1;   /* ビット反転して1を足す（2の補数） */
 
     printf("正負逆転した値は%dです。\n", inverse_num);
     return 0;
