@@ -8,8 +8,8 @@ int main(void)
     num = 0b00001010;
     printf("%d\n", num);           /* ① 10 */
 
-    /* ② 出席番号が不明なので10番を例にする。実際の番号に書き換え可能 */
-    int attendance_number = 0b00001010;
+    /* ② 出席番号：35 */
+    int attendance_number = 0b00100011;
     printf("%d\n", attendance_number);
     return 0;
 }
